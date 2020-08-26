@@ -17,6 +17,20 @@ body {
     color: white;
 }
 
+.hero nav {
+    text-align: right;
+    padding: 10px 0;
+}
+
+.hero nav a {
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.hero nav a:hover {
+    opacity: 1;
+}
+
 .hero .middle {
     width: 100%;
     max-width: 774px;
@@ -158,10 +172,16 @@ h2 .overline {
     margin-top: 0;
 }
 
+ul a,
 p a {
     text-decoration: none;
     color: #9155d9;
     border-bottom: 2px solid #9155d9;
+}
+
+.page>a {
+    color: black;
+    text-decoration: none;
 }
 
 @media (max-width: 794px) {
@@ -182,6 +202,7 @@ p a {
     font-weight: 100;
     /* margin-left: -10px; */
 }
+
 .flashing {
     animation: blink 1s infinite;
 }
@@ -190,15 +211,19 @@ p a {
     0% {
         opacity: 1;
     }
+
     40% {
         opacity: 1;
     }
+
     50% {
         opacity: 0;
     }
+
     90% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
