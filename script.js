@@ -2,7 +2,7 @@
 (function () {
     typer(
         document.querySelector('#role'),
-        ['Volunteer', 'Solution Architect', 'Political Technologist', 'Speaker', 'Entrepreneur', 'Innovator']
+        ['Volunteer', 'Engineering Manager', 'Political Technologist', 'Speaker', 'Entrepreneur', 'Innovator']
     );
 })();
 
