@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 800"
+  width="1200"
+  height="800"
+  role="img"
+  aria-label="Placeholder for a photograph of the Bakerloo line graffiti clean-up"
+>
+  <rect width="1200" height="800" fill="#fafafa" />
+  <rect x="0.5" y="0.5" width="1199" height="799" fill="none" stroke="#e5e7eb" />
+  <g
+    font-family="Georgia, 'Times New Roman', serif"
+    text-anchor="middle"
+    fill="#9ca3af"
+  >
+    <text x="600" y="386" font-size="26" letter-spacing="4">TUBE CLEAN-UP &#8212; BEFORE / AFTER</text>
+    <text x="600" y="430" font-size="19" fill="#c3c7ce">1200 &#215; 800 &#183; replace /img/tube-cleanup.svg</text>
+  </g>
+</svg>
