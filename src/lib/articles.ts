@@ -2,6 +2,7 @@ export type ProjectId =
   | "forest-city"
   | "looking-for-growth"
   | "elevenlabs"
+  | "amplitude"
   | "writing";
 
 export type TabId = "all" | ProjectId;
@@ -33,6 +34,12 @@ export const tabs: { id: TabId; label: string; blurb?: string }[] = [
     id: "elevenlabs",
     label: "ElevenLabs",
     blurb: "I work on Growth at ElevenLabs.",
+  },
+  {
+    id: "amplitude",
+    label: "Amplitude",
+    blurb:
+      "I was an engineering manager and Head of AI at Amplitude, where I created and ran Amplitude's first engineering team outside North-America, and built Ask Amplitude.",
   },
   {
     id: "writing",
@@ -776,7 +783,7 @@ const unsorted: Article[] = [
     outlet: "Latent Space",
     logo: "/press/latentspace.png",
     date: "2023-06-08",
-    projects: ["writing"],
+    projects: ["writing", "amplitude"],
   },
   {
     title: "The Story of Ask Amplitude",
@@ -784,7 +791,7 @@ const unsorted: Article[] = [
     outlet: "Amplitude",
     logo: "/press/amplitude.png",
     date: "2023-08-08",
-    projects: ["writing"],
+    projects: ["writing", "amplitude"],
   },
   {
     title: "How AI improves development processes for software engineers",
@@ -792,7 +799,7 @@ const unsorted: Article[] = [
     outlet: "SDxCentral",
     logo: "/press/sdxcentral.png",
     date: "2024-04-01",
-    projects: [],
+    projects: ["amplitude"],
   },
   {
     title: "Could artificial intelligence benefit democracy?",
@@ -817,7 +824,7 @@ const unsorted: Article[] = [
     outlet: "Telco Magazine",
     logo: "/press/telcomagazine.png",
     date: "2023-08-14",
-    projects: [],
+    projects: ["amplitude"],
   },
   {
     title:
@@ -826,7 +833,7 @@ const unsorted: Article[] = [
     outlet: "SiliconANGLE",
     logo: "/press/siliconangle.png",
     date: "2023-08-10",
-    projects: [],
+    projects: ["amplitude"],
   },
   {
     title: "Dissecting the AI Hype with Amplitude’s Joseph Reeve",
@@ -834,7 +841,7 @@ const unsorted: Article[] = [
     outlet: "EM360",
     logo: "/press/em360.png",
     date: "2023-07-04",
-    projects: [],
+    projects: ["amplitude"],
   },
   {
     title: "Your AI coding assistant is a hot mess",
@@ -842,7 +849,7 @@ const unsorted: Article[] = [
     outlet: "Tech Monitor",
     logo: "/press/techmonitor.png",
     date: "2023-06-19",
-    projects: [],
+    projects: ["amplitude"],
   },
   {
     title: "How to talk to statues",

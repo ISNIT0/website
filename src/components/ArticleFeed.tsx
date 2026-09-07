@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   articles,
   formatDate,
@@ -10,7 +10,16 @@ import {
 
 export function ArticleFeed() {
   const [tab, setTab] = useState<TabId>("all");
+  const selectedRef = useRef<HTMLButtonElement>(null);
   const current = tabs.find((item) => item.id === tab);
+
+  useEffect(() => {
+    selectedRef.current?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [tab]);
 
   const visible = useMemo(() => {
     if (tab === "all") return articles;
@@ -19,31 +28,38 @@ export function ArticleFeed() {
 
   return (
     <section className="mt-16 sm:mt-20">
-      <div
-        role="tablist"
-        aria-label="Projects"
-        className="flex flex-wrap gap-x-6 gap-y-3 border-b border-gray-200"
-      >
-        {tabs.map((item) => {
-          const selected = tab === item.id;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              role="tab"
-              aria-selected={selected}
-              id={`tab-${item.id}`}
-              onClick={() => setTab(item.id)}
-              className={`eyebrow -mb-px border-b pb-3 transition-colors ${
-                selected
-                  ? "border-black text-black"
-                  : "border-transparent text-gray-400 hover:text-black"
-              }`}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+      <div className="relative border-b border-gray-200">
+        <div
+          role="tablist"
+          aria-label="Projects"
+          className="-mb-px flex gap-x-5 overflow-x-auto overscroll-x-contain pr-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-x-6 sm:pr-0"
+        >
+          {tabs.map((item) => {
+            const selected = tab === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                id={`tab-${item.id}`}
+                ref={selected ? selectedRef : undefined}
+                onClick={() => setTab(item.id)}
+                className={`eyebrow shrink-0 border-b pb-3 whitespace-nowrap transition-colors ${
+                  selected
+                    ? "border-black text-black"
+                    : "border-transparent text-gray-400 hover:text-black"
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white sm:hidden"
+        />
       </div>
 
       {current?.blurb ? (
