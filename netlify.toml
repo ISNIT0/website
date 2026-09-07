@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"
+  command = "npx next build"
   publish = "out"
 
 [build.environment]
   NODE_VERSION = "20"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
