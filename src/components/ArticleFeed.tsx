@@ -45,10 +45,10 @@ export function ArticleFeed() {
                 id={`tab-${item.id}`}
                 ref={selected ? selectedRef : undefined}
                 onClick={() => setTab(item.id)}
-                className={`eyebrow shrink-0 border-b pb-3 whitespace-nowrap transition-colors ${
+                className={`eyebrow shrink-0 pb-3 whitespace-nowrap transition-colors ${
                   selected
-                    ? "border-black text-black"
-                    : "border-transparent text-gray-400 hover:text-black"
+                    ? "text-black shadow-[inset_0_-1px_0_0_#000]"
+                    : "text-gray-400 hover:text-black"
                 }`}
               >
                 {item.label}
