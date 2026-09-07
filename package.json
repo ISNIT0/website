@@ -1,0 +1,20 @@
+{
+  "name": "joe-reeve-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Personal site for Joe Reeve. Static HTML built with the Tailwind CSS CLI.",
+  "type": "module",
+  "scripts": {
+    "clean": "node build.mjs --clean-only",
+    "build:html": "node build.mjs",
+    "build:css": "tailwindcss --input ./src/styles/main.css --output ./dist/assets/main.css --minify",
+    "build": "npm run build:html && npm run build:css",
+    "watch:css": "tailwindcss --input ./src/styles/main.css --output ./dist/assets/main.css --watch",
+    "dev": "npm run build:html && npm run watch:css",
+    "serve": "node --run build && npx --yes serve dist"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "tailwindcss": "^4.1.14"
+  }
+}

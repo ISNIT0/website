@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face {
+        font-family: "Inria Serif";
+        font-style: normal;
+        font-weight: 300;
+        src: url("../src/static/fonts/inria-serif-300-normal-latin.woff2")
+          format("woff2");
+      }
+      @font-face {
+        font-family: "Inria Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url("../src/static/fonts/inria-serif-400-normal-latin.woff2")
+          format("woff2");
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+      }
+      body {
+        background: #fff;
+        color: #000;
+        font-family: "Inria Serif", Georgia, serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 76px 84px;
+        -webkit-font-smoothing: antialiased;
+      }
+      .eyebrow {
+        font-size: 20px;
+        font-weight: 400;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+      h1 {
+        font-size: 82px;
+        font-weight: 300;
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        max-width: 940px;
+      }
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-top: 1px solid #e5e7eb;
+        padding-top: 26px;
+        font-size: 21px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="eyebrow">Joe Reeve</p>
+    <h1>Technology, Politics, Optimism.</h1>
+    <div class="foot">
+      <span>Forest City &middot; Looking for Growth &middot; ElevenLabs</span>
+      <span>simmsreeve.com</span>
+    </div>
+  </body>
+</html>
