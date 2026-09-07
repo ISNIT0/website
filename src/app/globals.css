@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --font-serif: var(--font-inria);
+}
+
+html {
+  background: #fff;
+  color: #000;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: var(--font-inria), "Iowan Old Style", "Palatino Linotype", Palatino,
+    Georgia, serif;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
