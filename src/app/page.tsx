@@ -16,7 +16,7 @@ export default function Home() {
           Joe Reeve
         </span>
         <span className="mt-3 block text-xl font-light text-gray-600 sm:text-2xl">
-          Proactivist &amp; Technologist
+          Technologist &amp; Proactivist
         </span>
       </h1>
 

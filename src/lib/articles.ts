@@ -19,6 +19,17 @@ export type Article = {
 export const tabs: { id: TabId; label: string; blurb?: string }[] = [
   { id: "all", label: "All" },
   {
+    id: "elevenlabs",
+    label: "ElevenLabs",
+    blurb: "I work on Growth at ElevenLabs.",
+  },
+  {
+    id: "amplitude",
+    label: "Amplitude",
+    blurb:
+      "I was an engineering manager and Head of AI at Amplitude, where I created and ran Amplitude's first engineering team outside North-America, and built Ask Amplitude.",
+  },
+  {
     id: "forest-city",
     label: "Forest City",
     blurb:
@@ -29,17 +40,6 @@ export const tabs: { id: TabId; label: string; blurb?: string }[] = [
     label: "Looking for Growth",
     blurb:
       "I co-founded Looking for Growth, a cross-party group of entrepreneurs pushing for housing, infrastructure, and growth.",
-  },
-  {
-    id: "elevenlabs",
-    label: "ElevenLabs",
-    blurb: "I work on Growth at ElevenLabs.",
-  },
-  {
-    id: "amplitude",
-    label: "Amplitude",
-    blurb:
-      "I was an engineering manager and Head of AI at Amplitude, where I created and ran Amplitude's first engineering team outside North-America, and built Ask Amplitude.",
   },
   {
     id: "writing",
@@ -616,6 +616,22 @@ const unsorted: Article[] = [
     outlet: "AI Engineer",
     logo: "/press/aiengineer.png",
     date: "2026-02-10",
+    projects: ["elevenlabs"],
+  },
+  {
+    title: "Growth & Company: What the F*** is growth engineering?",
+    url: "https://luma.com/n087mgcv",
+    outlet: "Luma",
+    logo: "/press/luma.png",
+    date: "2026-10-02",
+    projects: ["elevenlabs"],
+  },
+  {
+    title: "Rust London x Zed Meetup",
+    url: "https://luma.com/f76diwum",
+    outlet: "Luma",
+    logo: "/press/luma.png",
+    date: "2025-11-11",
     projects: ["elevenlabs"],
   },
   {

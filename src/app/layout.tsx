@@ -13,11 +13,11 @@ const inria = Inria_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://simmsreeve.com"),
-  title: "Joe Reeve, Proactivist & Technologist",
+  title: "Joe Reeve, Technologist & Proactivist",
   description:
     "I left school at 16 to write code. I now co-found Forest City and Looking for Growth, and I work on Growth at ElevenLabs.",
   openGraph: {
-    title: "Joe Reeve, Proactivist & Technologist",
+    title: "Joe Reeve, Technologist & Proactivist",
     description: "Technology, Politics, Optimism.",
     url: "https://simmsreeve.com",
     type: "website",
