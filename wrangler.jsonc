@@ -1,11 +1,18 @@
-// Cloudflare Workers static-assets config, ready for the move off Netlify.
-// Not deployed yet: deploys must ship via a GitHub Action, never from a laptop.
+// The site, served as Cloudflare Workers static assets (requests to static assets are free).
+// Built by `npm run build` into ./out; deployed only by .github/workflows/deploy.yml.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "simmsreeve",
   "compatibility_date": "2026-11-01",
+  // Served at simmsreeve.com and www; the zone is in the same Cloudflare account.
+  // Only these two hostnames: the zone's other subdomains are separate sites.
+  "routes": [
+    { "pattern": "simmsreeve.com", "custom_domain": true },
+    { "pattern": "www.simmsreeve.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
+    "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   }
 }

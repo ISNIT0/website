@@ -10,6 +10,6 @@ npm run build    # type-check, build to out/, prerender index.html and 404.html
 npm run preview  # serve out/
 ```
 
-Deployed on Netlify from `out/` (`netlify.toml`). `wrangler.jsonc` serves the same
-`out/` as Cloudflare Workers static assets for the planned move; ship that via a
-GitHub Action, not `wrangler deploy` from a laptop.
+Deployed to Cloudflare Workers (static assets) by `.github/workflows/deploy.yml` on every
+push to `master`: lint, build, `wrangler deploy`. `wrangler.jsonc` attaches simmsreeve.com and
+www.simmsreeve.com as custom domains. Never `wrangler deploy` from a laptop.
