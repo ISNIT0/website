@@ -51,6 +51,14 @@ export const tabs: { id: TabId; label: string; blurb?: string }[] = [
 
 const unsorted: Article[] = [
   {
+    title: "Agents are just string concatenation",
+    url: "/blog/agents-are-just-string-concatenation/",
+    outlet: "Essay",
+    logo: "/icon.svg",
+    date: "2026-11-23",
+    projects: ["writing"],
+  },
+  {
     title: "I Met Britain’s Optimists in Kensington Gardens",
     url: "https://www.telegraph.co.uk/news/2026/09/06/optimistic-picnic-kensington-gardens-joe-reeve/",
     outlet: "The Telegraph",

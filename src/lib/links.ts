@@ -2,6 +2,9 @@
 // Subdomains count too (guess.forestcity.uk matches forestcity.uk).
 const OWN_DOMAINS = ["simmsreeve.com", "forestcity.uk"];
 
+/** Links within this site, e.g. /blog/... */
+export const isInternal = (url: string) => url.startsWith("/");
+
 function isOwn(url: string): boolean {
   const host = new URL(url).hostname.toLowerCase();
   return OWN_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`));
