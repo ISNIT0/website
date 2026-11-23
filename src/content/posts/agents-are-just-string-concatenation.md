@@ -1064,8 +1064,22 @@ Good harnesses can be optimised automatically, through a process some people cal
 
 This is all very active work, and I may well be proven completely wrong next week.
 
-## A note on accuracy
+## Conclusion
 
-This article is a mix of roughly accurate history, pseudo-code and personal opinion. It's a distillation of core concepts: it skips a lot of complexity, and deliberately muddles the timeline a bit to make the story cleaner. The code won't run as written; the API clients are made up to show the idea, not any particular provider's SDK.
+Strip away the jargon and every idea in this article is the same move: choose some text, add it to the string, call the model again.
 
-I hope it works as a mind-meld from a technical person (me) to a less technical one (you). Use it as food for your mental model of agents, and you'll do just fine.
+- **Chat** is a script where the human writes one of the parts.
+- **RAG** is pasting reference material in before the question.
+- **Tool calling** is letting ordinary code take a turn in the script.
+- **Thinking** is the model writing notes to itself before it answers.
+- **Compaction and sub-agents** are choosing what to leave out.
+- **Skills** are instructions that arrive just as they're needed.
+- **Prompt injection** is the same trick, with someone else choosing the string.
+
+So when the next new term turns up, ask two questions. What text ends up in front of the model, and who put it there? You'll usually find the answer is less magical than the name.
+
+That's also where the work is. The model providers will keep making models smarter. Deciding which strings to concatenate (the context, the tools, the skills) and checking what comes out the other end (the evals) is the part that's left to us, and it's where good products will be won or lost.
+
+None of this is precisely accurate. It's a mix of roughly accurate history, pseudo-code and personal opinion; it skips a lot of complexity, and deliberately muddles the timeline to keep the story clean. The code won't run as written, and the API clients are made up to show the idea, not any particular provider's SDK. But as a mind-meld from a technical person (me) to a less technical one (you), I hope it gives your mental model of agents something solid to stand on.
+
+Agents are just string concatenation.
