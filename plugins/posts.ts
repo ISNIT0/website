@@ -24,6 +24,15 @@ function slugify(text: string) {
     .replace(/^-|-$/g, "");
 }
 
+// Heading labels go to React as plain text, so turn marked's entities back into characters.
+function decodeEntities(text: string) {
+  const named: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: "\u00a0" };
+  return text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e: string) => {
+    if (e[0] === "#") return String.fromCodePoint(e[1] === "x" || e[1] === "X" ? parseInt(e.slice(2), 16) : Number(e.slice(1)));
+    return named[e.toLowerCase()] ?? m;
+  });
+}
+
 function parseFrontmatter(src: string) {
   const match = /^---\n([\s\S]*?)\n---\n/.exec(src);
   if (!match) throw new Error("post is missing frontmatter");
@@ -74,7 +83,7 @@ export async function parsePost(src: string, slug: string): Promise<Post> {
         while (usedIds.has(id)) id += "-";
         usedIds.add(id);
         const part = depth === 2 ? /^(Part [A-Za-z]+):\s*(.*)$/.exec(inner) : null;
-        const label = part ? part[2] : inner.replace(/<[^>]+>/g, "");
+        const label = decodeEntities((part ? part[2] : inner).replace(/<[^>]+>/g, ""));
         if (depth === 2 || depth === 3) toc.push({ id, label, depth, eyebrow: part?.[1] });
         if (part) {
           return `<h2 id="${id}"><span class="post-eyebrow">${part[1]}</span>${part[2]}</h2>\n`;
