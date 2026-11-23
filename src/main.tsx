@@ -1,6 +1,10 @@
 import { StrictMode, type ReactNode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import "./index.css";
+import { startGlass } from "./lib/glass";
+
+// No cookie banner: cookieless for everyone, visits still recorded for replay.
+startGlass(false);
 
 const root = document.getElementById("root")!;
 

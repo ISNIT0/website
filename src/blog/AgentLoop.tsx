@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { glassCapture } from "@/lib/glass";
 
 type NodeId = "user" | "concat" | "model" | "decision" | "tool" | "append" | "reply";
 
@@ -94,6 +95,7 @@ export function AgentLoop() {
     setFrame(-1);
   };
   const togglePlay = () => {
+    if (!isPlaying) glassCapture("agent_loop_played", { replay: done });
     if (done) {
       setFrame(-1);
       setPlaying(true);

@@ -1,0 +1,20 @@
+{
+  "name": "glass-website",
+  "accountId": "8ae803d586d7d8326ef1bc4837640b65",
+  "host": "https://simmsreeve.com/_glass",
+  "project": "website",
+  "store": "d1",
+  "d1": {
+    "name": "glass-website",
+    "id": "c91b2f84-61a0-47cc-a457-7e4d5e7091d8"
+  },
+  "replay": {
+    "bucket": "glass-website-replays",
+    "jurisdiction": "eu"
+  },
+  "lake": null,
+  "route": "simmsreeve.com/_glass/*",
+  "retentionDays": null,
+  "eu": true,
+  "version": "0.8.4"
+}

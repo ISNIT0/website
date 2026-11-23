@@ -16,7 +16,7 @@
 # build output
 /out/
 /out-ssr/
-/.wrangler/
+.wrangler/
 
 # production
 /build

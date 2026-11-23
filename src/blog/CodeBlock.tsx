@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { glassCapture } from "@/lib/glass";
 
 type Props = { lang: string; code: string; html: string; output?: string };
 
@@ -25,6 +26,7 @@ export function CodeBlock({ lang, code, html, output }: Props) {
 
   function run() {
     if (!output) return;
+    glassCapture("code_example_run", { lang, path: location.pathname });
     window.clearTimeout(timer.current);
     if (prefersReducedMotion()) {
       setShown(output);

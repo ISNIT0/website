@@ -5,6 +5,7 @@ import {
   tabs,
   type TabId,
 } from "@/lib/articles";
+import { glassCapture } from "@/lib/glass";
 import { externalRel, isInternal } from "@/lib/links";
 
 export function ArticleFeed() {
@@ -72,6 +73,15 @@ export function ArticleFeed() {
           <li key={article.url}>
             <a
               href={article.url}
+              onClick={() =>
+                glassCapture("article_opened", {
+                  title: article.title,
+                  outlet: article.outlet,
+                  url: article.url,
+                  tab,
+                  internal: isInternal(article.url),
+                })
+              }
               {...(isInternal(article.url)
                 ? {}
                 : { target: "_blank", rel: externalRel(article.url) })}

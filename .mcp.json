@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "glass": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "dataflare-cli",
+        "mcp"
+      ]
+    }
+  }
+}
