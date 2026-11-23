@@ -24,7 +24,7 @@ export default function Home() {
         <a
           href="https://luma.com/ldn"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow noopener noreferrer"
           className="eyebrow inline-block border-b border-black pb-1 text-black transition-opacity hover:opacity-55"
         >
           Attend My Next Event

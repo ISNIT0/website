@@ -7,6 +7,7 @@ import {
   tabs,
   type TabId,
 } from "@/lib/articles";
+import { externalRel } from "@/lib/links";
 
 export function ArticleFeed() {
   const [tab, setTab] = useState<TabId>("all");
@@ -74,7 +75,7 @@ export function ArticleFeed() {
             <a
               href={article.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel={externalRel(article.url)}
               className="group flex items-start gap-4 py-5 sm:gap-5"
             >
               <img
