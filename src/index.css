@@ -1,9 +1,15 @@
 @import "tailwindcss";
+@import "./fonts.css";
 
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #000000;
   --font-serif: var(--font-inria);
+}
+
+/* Same stack next/font produced. */
+:root {
+  --font-inria: "Inria Serif", "Inria Serif Fallback";
 }
 
 html {

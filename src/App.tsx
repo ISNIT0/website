@@ -1,6 +1,6 @@
 import { ArticleFeed } from "@/components/ArticleFeed";
 
-export default function Home() {
+export function App() {
   return (
     <main className="mx-auto w-full max-w-2xl flex-1 px-6 py-16 sm:py-24">
       <img

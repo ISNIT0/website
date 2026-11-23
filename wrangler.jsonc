@@ -1,0 +1,11 @@
+// Cloudflare Workers static-assets config, ready for the move off Netlify.
+// Not deployed yet: deploys must ship via a GitHub Action, never from a laptop.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "simmsreeve",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
