@@ -131,7 +131,7 @@ export function PostPage({ post }: { post: Post }) {
         </header>
 
         <aside className="post-aside">
-          <TableOfContents toc={post.toc} />
+          {post.toc.length > 0 ? <TableOfContents toc={post.toc} /> : null}
         </aside>
 
         <article id="post-body" className="post-body">

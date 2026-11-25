@@ -51,6 +51,14 @@ export const tabs: { id: TabId; label: string; blurb?: string }[] = [
 
 const unsorted: Article[] = [
   {
+    title: "On deliberate spelling mistakes",
+    url: "/blog/spelling-mistakes/",
+    outlet: "Essay",
+    logo: "/icon.svg",
+    date: "2026-11-25",
+    projects: ["writing"],
+  },
+  {
     title: "Agents are just string concatenation",
     url: "/blog/agents-are-just-string-concatenation/",
     outlet: "Essay",
