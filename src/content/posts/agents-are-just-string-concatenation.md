@@ -969,7 +969,7 @@ There's a catch. As written, our bash harness lets the agent do whatever it want
 
 Hence *sandboxes*, one of the current hot topics. All you need to know is that they're small Linux computers that are cheap to run, start very quickly, and accept bash commands over the internet.
 
-Sandboxes look set to become core infrastructure for agents. A lot of work is going into them, and because they all speak the same interface (bash), they're fairly easy to swap for one another. An interesting subject, but almost certainly not one you (a PM) need to go deep on.
+Sandboxes look set to become core infrastructure for agents. A lot of work is going into them, and because they all speak the same interface (bash), they're fairly easy to swap for one another. An interesting subject, but almost certainly not one you need to go deep on.
 
 ### Everything is a coding agent
 
