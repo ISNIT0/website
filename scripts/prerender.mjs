@@ -1,12 +1,14 @@
 // Renders every route to static HTML after `vite build`, so crawlers and first
 // paint get the full page. Output: out/index.html, out/blog/<slug>/index.html, out/404.html.
+import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { renderCard } from "./og.mjs";
 
 const out = fileURLToPath(new URL("../out/", import.meta.url));
 const ssr = fileURLToPath(new URL("../out-ssr/", import.meta.url));
 
-const { render, renderNotFound, routes } = await import(new URL("entry-server.js", `file://${ssr}`).href);
+const { ogCards, render, renderNotFound, routes } = await import(new URL("entry-server.js", `file://${ssr}`).href);
 
 // Preload the latin-subset faces the first screen uses, like next/font did.
 const fonts = readdirSync(`${out}assets`)
@@ -18,11 +20,25 @@ const shell = readFileSync(`${out}index.html`, "utf8").replace("<!--preload-font
 const HEAD = /<!--head:start-->[\s\S]*?<!--head:end-->/;
 if (!HEAD.test(shell)) throw new Error("index.html is missing the head:start/head:end markers");
 
+// Share cards. Each URL gets ?v=<content hash> so social sites refetch when a card changes.
+mkdirSync(`${out}og`, { recursive: true });
+const ogVersion = {};
+for (const card of ogCards) {
+  const png = await renderCard(card);
+  writeFileSync(`${out}og/${card.name}.png`, png);
+  ogVersion[card.name] = createHash("sha256").update(png).digest("hex").slice(0, 10);
+  console.log(`drew /og/${card.name}.png`);
+}
+const versionOgUrls = (html) =>
+  html.replace(/(\/og\/([\w-]+)\.png)"/g, (m, url, name) => (ogVersion[name] ? `${url}?v=${ogVersion[name]}"` : m));
+
 for (const route of routes) {
   const { html, head } = render(route);
-  const page = shell
-    .replace(HEAD, (block) => (head ?? block.replace(/<!--head:(start|end)-->\n?\s*/g, "")).trim())
-    .replace("<!--app-html-->", html);
+  const page = versionOgUrls(
+    shell
+      .replace(HEAD, (block) => (head ?? block.replace(/<!--head:(start|end)-->\n?\s*/g, "")).trim())
+      .replace("<!--app-html-->", html),
+  );
   const dir = `${out}${route.replace(/^\//, "")}`;
   mkdirSync(dir, { recursive: true });
   writeFileSync(`${dir}index.html`, page);

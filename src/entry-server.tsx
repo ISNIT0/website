@@ -5,7 +5,7 @@ import { PostPage } from "./blog/PostPage";
 import { NotFound } from "./NotFound";
 import { postFor, postHead } from "./routes";
 
-export { routes } from "./routes";
+export { ogCards, routes } from "./routes";
 
 /** HTML for a route, plus head tags to swap in (none for the homepage). */
 export function render(path: string): { html: string; head?: string } {
