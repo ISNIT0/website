@@ -4,13 +4,11 @@ dek: A wholly inaccurate, extremely helpful history of how we got from autocompl
 date: 2026-11-23
 ---
 
-This article is for slightly-technical (or wannabe-technical) people who work with AI, product managers especially. You probably use agents every day, and you might want to build them. What follows is for building a mental model, not for accuracy.
+This article is for somewhat-technical people who work with AI. You probably use agents every day, you’d like to understand how they work better, and you might even want to build one.
 
-It will walk you through the basic building blocks of AI agents. Along the way it should help you cut through the complicated-sounding words my fellow technologists love to invent. I'd be very pleased with the review: "Wholly inaccurate, extremely helpful."
+Much of how we interact with LLMs today, both as humans and through APIs, is a codification of tricks we invented to make fairly weak models (GPT-3) more useful and reliable.
 
-Much of how we interact with LLMs today, both as humans and through APIs, is a codification of tricks we invented to make fairly weak models (GPT-3) more useful and reliable. I've been building apps close to the frontier since GPT-3. Over that time I've developed an intuition for how these models behave, and why their APIs look the way they do.
-
-Newcomers tend to find that intuition hard to build, because so much history is baked into the fundamental APIs. So what follows is a (vaguely) chronological tour, from early text-completion models to the whizz-bang agents we all use today. I'll spoil the ending now: underneath all the jargon, agents are just string concatenation.
+Newcomers to the AI world tend to find it difficult to build an intuition for how these systems work, because so much arbitrary history is now baked into the fundamental APIs. What follows is a (vaguely) chronological tour, from early text-completion models to the whizz-bang agents we all use today. I'll spoil the ending now: underneath all the jargon, agents are just string concatenation.
 
 ## Part One: Before ChatGPT, there were text-completion models
 
