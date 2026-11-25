@@ -21,7 +21,7 @@ export const tabs: { id: TabId; label: string; blurb?: string }[] = [
   {
     id: "elevenlabs",
     label: "ElevenLabs",
-    blurb: "I work on Growth at ElevenLabs.",
+    blurb: "I worked on Growth at ElevenLabs.",
   },
   {
     id: "amplitude",
