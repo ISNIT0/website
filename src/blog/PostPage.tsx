@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { formatDate } from "@/lib/articles";
 import { AgentLoop } from "./AgentLoop";
 import { CodeBlock } from "./CodeBlock";
+import { postPath, posts } from "./posts";
 import { TokenFilter } from "./TokenFilter";
 import type { Block, Post, TocItem } from "./types";
 
@@ -16,6 +17,43 @@ function BlockView({ block }: { block: Block }) {
     case "token-filter":
       return <TokenFilter />;
   }
+}
+
+/** The posts either side of this one by date: previous is older, next is newer. */
+function neighbours(post: Post) {
+  const byDate = [...posts].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  const i = byDate.findIndex((p) => p.slug === post.slug);
+  return { previous: byDate[i - 1], next: byDate[i + 1] };
+}
+
+function NeighbourLink({ post, direction }: { post: Post; direction: "previous" | "next" }) {
+  const isNext = direction === "next";
+  return (
+    <a
+      href={postPath(post.slug)}
+      rel={isNext ? "next" : "prev"}
+      className={`group block border-t border-gray-200 pt-5 ${isNext ? "sm:col-start-2 sm:text-right" : ""}`}
+    >
+      <span className="eyebrow block text-gray-400 transition-colors group-hover:text-black">
+        {isNext ? "Next →" : "← Previous"}
+      </span>
+      <span className="mt-3 block text-xl leading-snug font-light text-black group-hover:underline">
+        {post.title}
+      </span>
+      <span className="mt-1 block text-sm text-gray-500">{formatDate(post.date)}</span>
+    </a>
+  );
+}
+
+function PostNav({ post }: { post: Post }) {
+  const { previous, next } = neighbours(post);
+  if (!previous && !next) return null;
+  return (
+    <nav aria-label="More essays" className="col-start-2 mt-20 grid gap-8 sm:grid-cols-2">
+      {previous ? <NeighbourLink post={previous} direction="previous" /> : null}
+      {next ? <NeighbourLink post={next} direction="next" /> : null}
+    </nav>
+  );
 }
 
 function ReadingProgress() {
@@ -140,7 +178,9 @@ export function PostPage({ post }: { post: Post }) {
           ))}
         </article>
 
-        <footer className="post-footer">
+        <PostNav post={post} />
+
+        <footer className="post-footer mt-14!">
           <img src="/joe-reeve.webp" alt="Joe Reeve" width={176} height={207} className="h-16 w-auto" />
           <div>
             <p className="text-xl font-light">Joe Reeve</p>
