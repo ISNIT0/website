@@ -1,6 +1,5 @@
 ---
 title: On deliberate spelling mistakes
-dek: A short story about a Wikipedia bot, a trip to the pub, and the other team's bot.
 date: 2026-11-25
 ---
 

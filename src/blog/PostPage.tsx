@@ -164,7 +164,7 @@ export function PostPage({ post }: { post: Post }) {
             {post.readingMinutes} min read
           </p>
           <h1 className="post-title">{post.title}</h1>
-          <p className="post-dek">{post.dek}</p>
+          {post.showDek ? <p className="post-dek">{post.dek}</p> : null}
           <div className="post-rule" aria-hidden="true" />
         </header>
 

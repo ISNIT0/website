@@ -10,6 +10,8 @@ export type Post = {
   slug: string;
   title: string;
   dek: string;
+  /** False when the post has no subtitle; dek is then only the share description. */
+  showDek: boolean;
   date: string;
   readingMinutes: number;
   toc: TocItem[];

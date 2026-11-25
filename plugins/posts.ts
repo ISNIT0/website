@@ -137,12 +137,21 @@ export async function parsePost(src: string, slug: string): Promise<Post> {
   return {
     slug,
     title: data.title,
-    dek: data.dek,
+    // No subtitle: share text falls back to the opening sentence.
+    dek: data.dek ?? firstSentence(body),
+    showDek: Boolean(data.dek),
     date: data.date,
     readingMinutes: Math.max(1, Math.round(words / 230)),
     toc,
     blocks,
   };
+}
+
+/** The post's first sentence as plain text, for share descriptions. */
+function firstSentence(body: string) {
+  const para = body.split(/\n\s*\n/).find((p) => p.trim() && !/^(#|```|::|-|\|)/.test(p.trim())) ?? "";
+  const text = para.replace(/[*_`]/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").replace(/\s+/g, " ").trim();
+  return text.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? text;
 }
 
 export function postsPlugin(): Plugin {
