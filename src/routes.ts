@@ -10,7 +10,7 @@ export const ogCards = [
     name: "home",
     eyebrow: "Technology, Politics, Optimism",
     title: "Joe Reeve",
-    dek: "Technologist & Proactivist",
+    dek: "Technologist & Proactivist\nFormerly of ElevenLabs & Amplitude",
     big: true,
     footer: "simmsreeve.com",
   },

@@ -144,7 +144,7 @@ export function PostPage({ post }: { post: Post }) {
           <img src="/joe-reeve.webp" alt="Joe Reeve" width={176} height={207} className="h-16 w-auto" />
           <div>
             <p className="text-xl font-light">Joe Reeve</p>
-            <p className="mt-1 text-gray-600">Technologist &amp; Proactivist. I work on Growth at ElevenLabs.</p>
+            <p className="mt-1 text-gray-600">Technologist &amp; Proactivist. Formerly of ElevenLabs &amp; Amplitude.</p>
             <a
               href="/"
               className="eyebrow mt-5 inline-block border-b border-black pb-1 text-black transition-opacity hover:opacity-55"

@@ -18,6 +18,9 @@ export function App() {
         <span className="mt-3 block text-xl font-light text-gray-600 sm:text-2xl">
           Technologist &amp; Proactivist
         </span>
+        <span className="mt-2 block text-lg font-light text-gray-500">
+          Formerly of ElevenLabs &amp; Amplitude
+        </span>
       </h1>
 
       <p className="mt-8">

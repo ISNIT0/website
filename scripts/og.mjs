@@ -75,7 +75,7 @@ export async function renderCard({ eyebrow: top, title, dek, big = false, footer
               title,
             ),
             dek
-              ? el("div", { marginTop: 26, fontSize: 30, lineHeight: 1.35, color: "#4b5563" }, dek)
+              ? el("div", { marginTop: 26, fontSize: 30, lineHeight: 1.35, color: "#4b5563", whiteSpace: "pre-line" }, dek)
               : null,
           ].filter(Boolean)),
           el("div", { display: "flex", alignItems: "center" }, [
